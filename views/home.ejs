@@ -1,0 +1,8 @@
+<%- include('header'); -%>
+<h1>Trang chủ</h1>
+<% if (currentUser) { %>
+Xin chào <%= currentUser.displayName %>
+<% } else { %>
+Chào mừng bạn đến với website
+<% } %>
+<%- include('footer'); -%>

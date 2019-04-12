@@ -1,0 +1,39 @@
+<%- include('../header'); -%>
+<h1>Todo List</h1>
+<a href="/auth/logout" class="btn btn-primary float-right">Logout</a>
+  <!-- <p class="">Hello <%= user.displayName%></p> -->
+  
+  <div class="alert float-right alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Hello</strong> <%= user.displayName%>
+  </div>
+  
+  
+<ul>
+  <% for (let i = 0; i < todos.length; i++) { %>
+    <% if (!todos[i].done) { %>
+    <li>
+      
+      
+      
+    
+      
+      <%= todos[i].task %>
+      <form method="POST" action="/todo/<%= todos[i].id %>/done">
+         
+         <button type="submit" class="btn btn-primary">Làm xong</button>
+      </form>
+    </li>
+    <% } else { %>
+    <li><s><%= todos[i].task %></s></li>
+    <% } %>
+  <% } %>
+</ul>
+<form action="/todo" method="POST">
+  <div class="form-group">
+    <label for="task">Tên công việc</label>
+    <input type="text" class="form-control" id="task" name="task" placeholder="Tên công việc">
+  </div>
+  <button type="submit" class="btn btn-primary">Thêm</button>
+</form>
+<%- include('../footer'); -%>
